@@ -1,5 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/styles/theme.sass'
+
 html,
 body
+    background-color: $color-app-bg
     margin: 0
     padding: 0
+
+    h1 
+        color: $color-app-text
+        font-family: 'Ropa Sans'
+        font-size: 50px
+        margin: 0
+        padding: 30px 30px 80px 30px
+
+        @media screen and (min-width: 768px)
+            font-size: 100px
+            padding: 40px 60px 30px 60px

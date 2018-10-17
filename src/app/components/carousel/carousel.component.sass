@@ -1,0 +1,67 @@
+@import '../../../assets/styles/theme.sass'
+
+.cmp-carousel
+
+    background-color: $color-carousel-bg
+    width: 100%
+
+    .wrapper
+        padding: 40px 30px 40px 30px    
+
+        .carousel-mask
+            display: none
+
+        .carousel-mobile
+            display: block 
+            position: relative
+            margin: 0 auto
+            width: 360px
+
+            .photo-button
+                cursor: pointer
+                background-color: rgba(255,255,255,.5)
+                border-bottom-left-radius: 74px * 2
+                border-top-left-radius: 74px * 2
+                border-width: 0
+                display: inline-block
+                height: 74px * 2
+                margin: -88px 0 0 0
+                top: 50%
+                width: 74px
+                z-index: 1
+                .photo-button-arrow
+                    fill: $color-carousel-bt-arrow
+                    margin-left: 20px
+                    pointer-events: none
+
+            .bt-left
+                @extend .photo-button
+                webkit-transform: rotate(180deg)
+                -moz-transform: rotate(180deg)
+                -o-transform: rotate(180deg)
+                -ms-transform: rotate(180deg)
+                transform: rotate(180deg)
+                position: absolute
+                left: 0
+
+            .bt-right
+                @extend .photo-button
+                position: absolute
+                right: 0
+
+
+    @media screen and (min-width: 768px)
+        .wrapper
+            padding: 40px 60px 30px 60px
+
+            .carousel-mobile
+                display: none 
+
+            .carousel-mask
+                display: block
+                overflow: hidden
+
+                .photo-wrapper
+                    display: inline-block
+                    margin: 0 10px
+                    // width: 30%

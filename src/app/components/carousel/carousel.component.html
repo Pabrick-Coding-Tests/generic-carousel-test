@@ -1,3 +1,26 @@
-<p>
-  carousel works!
-</p>
+<div class="cmp-carousel">
+
+  <div class="wrapper">
+
+    <div *ngIf="currentPhoto" class="carousel-mobile">
+
+      <button class="bt-left" (click)="prevPhoto()">
+        <img class="photo-button-arrow" src="../../../assets/images/arrow.svg">
+      </button>
+
+      <button class="bt-right" (click)="nextPhoto()">
+        <img class="photo-button-arrow" src="../../../assets/images/arrow.svg">
+      </button>
+
+      <app-carousel-photo [data]="currentPhoto"></app-carousel-photo>
+    </div>
+
+    <div class="carousel-mask">
+      <div *ngFor="let photo of service.photos" class="photo-wrapper">
+        <app-carousel-photo [data]="photo"></app-carousel-photo>
+      </div>
+    </div>
+
+  </div>
+
+</div>
