@@ -1,26 +1,36 @@
 <div class="cmp-carousel">
 
-  <div class="wrapper">
+  <div class="wrapper" *ngIf="service.photos" >
 
-    <div *ngIf="currentPhoto" class="carousel-mobile">
-
-      <button class="bt-left" (click)="prevPhoto()">
+    <app-carousel-photo [data]="currentPhoto" class="photo-inline desktop"></app-carousel-photo>
+    <app-carousel-photo [data]="currentPhoto" class="photo-inline tablet"></app-carousel-photo>
+    <div class="photo-inline mobile">
+      <button class="bt-prev" (click)="prevPhoto()">
         <img class="photo-button-arrow" src="../../../assets/images/arrow.svg">
       </button>
-
-      <button class="bt-right" (click)="nextPhoto()">
+      <button class="bt-next" (click)="nextPhoto()">
         <img class="photo-button-arrow" src="../../../assets/images/arrow.svg">
       </button>
-
       <app-carousel-photo [data]="currentPhoto"></app-carousel-photo>
     </div>
+    <app-carousel-photo [data]="currentPhoto" class="photo-inline tablet"></app-carousel-photo>
+    <app-carousel-photo [data]="currentPhoto" class="photo-inline desktop"></app-carousel-photo>
 
-    <div class="carousel-mask">
-      <div *ngFor="let photo of service.photos" class="photo-wrapper">
-        <app-carousel-photo [data]="photo"></app-carousel-photo>
+    <!-- TODO 
+      <div class="carousel-desktop">
+        <div class="carousel-mask">
+          <div *ngFor="let photo of service.photos" class="photo-wrapper">
+            <app-carousel-photo [data]="photo"></app-carousel-photo>
+          </div>
+        </div>
       </div>
-    </div>
+    -->
 
+  </div>
+
+  <div class="carousel-buttons">
+    <button class="bt-prev" (click)="prevPhoto()">Prev</button>
+    <button class="bt-next" (click)="nextPhoto()">Next</button>
   </div>
 
 </div>
