@@ -3,48 +3,17 @@
 .cmp-carousel
     width: 100%
 
-    .carousel-buttons
-        display: table
-        margin: 30px auto 0 auto
-
-        .carousel-button
-            cursor: pointer
-            background-color: rgba(255,255,255,.5)
-            border-bottom-left-radius: 74px * 2
-            border-top-left-radius: 74px * 2
-            border-width: 0
-            display: inline-block
-            height: 74px * 2
-            margin: -88px 0 0 0
-            top: 50%
-            width: 74px
-            z-index: 1
-
-            .bt-prev
-                @extend .carousel-button
-                webkit-transform: rotate(180deg)
-                -moz-transform: rotate(180deg)
-                -o-transform: rotate(180deg)
-                -ms-transform: rotate(180deg)
-                transform: rotate(180deg)
-                position: absolute
-                left: 0
-
-            .bt-next
-                @extend .carousel-button
-                position: absolute
-                right: 0
-
     .wrapper
         background-color: $color-carousel-bg
         padding: 40px 30px 40px 30px 
+        height: 360px
 
-        .photo-inline
-            display: none
-            padding: 0 10px
+        .carousel-buttons
+            margin: -180px auto 0 auto
             position: relative
+            width: 360px
 
-            .photo-button
+            .carousel-btn-mobile
                 cursor: pointer
                 background-color: rgba(255,255,255,.5)
                 border-bottom-left-radius: 74px * 2
@@ -56,13 +25,18 @@
                 top: 50%
                 width: 74px
                 z-index: 1
-                .photo-button-arrow
+                outline: 0
+                img
+                    display: block
                     fill: $color-carousel-bt-arrow
                     margin-left: 20px
                     pointer-events: none
+                span 
+                    display: none
 
-            .bt-prev
-                @extend .photo-button
+
+            .btn-prev
+                @extend .carousel-btn-mobile
                 webkit-transform: rotate(180deg)
                 -moz-transform: rotate(180deg)
                 -o-transform: rotate(180deg)
@@ -71,25 +45,66 @@
                 position: absolute
                 left: 0
 
-            .bt-next
-                @extend .photo-button
+            .btn-next
+                @extend .carousel-btn-mobile
                 position: absolute
-                right: 0   
+                right: 0 
 
-        .photo-inline.mobile
-            display: inline-block
-        .photo-inline.tablet
-            display: none
-        .photo-inline.desktop
-            display: none      
+        .carousel-mask
+            height: 370px
+            width: 360px
+            margin: 0 auto
+            overflow: hidden
+
+            .carousel-row
+                display: inline-flex
+                position: relative
+                transition: all .25s ease-in-out
+                -moz-transition: all .25s ease-in-out
+                -webkit-transition: all .25s ease-in-out
+                
 
     @media screen and (min-width: 768px)
         .wrapper
-            .photo-inline.tablet
-                display: inline-block  
+            .carousel-mask
+                overflow: visible
 
-    @media screen and (min-width: 1024px)
-        .wrapper
-            .photo-inline.desktop
-                display: inline-block  
+            .carousel-buttons
+                text-align: center
+                margin: 0 auto 80px auto
+                .carousel-btn
+                    background-color: $color-carousel-bt-bg
+                    color: $color-carousel-bt-text
+                    font-family: 'Ropa Sans'
+                    font-size: 20px
+                    height: auto
+                    margin: 88px 10px 0 10px
+                    padding: 10px
+                    width: 80px
+                    position: initial
+                    img 
+                        display: none
+                    span 
+                        display: block
+                .btn-prev
+                    @extend .carousel-btn
+                    border-bottom-left-radius: 10px
+                    border-top-left-radius: 10px
+                    border-bottom-right-radius: 0
+                    border-top-right-radius: 0
+                    text-align: right
+                    webkit-transform: rotate(0deg)
+                    -moz-transform: rotate(0deg)
+                    -o-transform: rotate(0deg)
+                    -ms-transform: rotate(0deg)
+                    transform: rotate(0deg)
+                .btn-next
+                    @extend .carousel-btn
+                    text-align: left
+                    border-bottom-left-radius: 0
+                    border-top-left-radius: 0
+                    border-bottom-right-radius: 10px
+                    border-top-right-radius: 10px
+                    
+
 
